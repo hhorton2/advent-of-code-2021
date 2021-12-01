@@ -7,7 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Input"/>
+        <None Remove="Input\day01.txt"/>
+        <Content Include="Input\day01.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <None Remove="Input\day01Example.txt"/>
+        <Content Include="Input\day01Example.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

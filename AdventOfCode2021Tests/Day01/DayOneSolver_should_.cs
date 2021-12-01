@@ -16,8 +16,8 @@ namespace AdventOfCode2021Tests.Day01
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartOne(string expectedResult)
+        [InlineData(7)]
+        public void SolveExamplesPartOne(int expectedResult)
         {
             var parser = new DayOneParser();
             var input = parser.ParsePartOne("Input/day01Example.txt");
@@ -35,13 +35,12 @@ namespace AdventOfCode2021Tests.Day01
             var input = parser.ParsePartOne("Input/day01.txt");
             var result = solver.SolvePartOne(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartTwo(string expectedResult)
+        [InlineData(5)]
+        public void SolveExamplesPartTwo(int expectedResult)
         {
             var parser = new DayOneParser();
             var input = parser.ParsePartTwo("Input/day01Example.txt");
@@ -59,8 +58,7 @@ namespace AdventOfCode2021Tests.Day01
             var input = parser.ParsePartTwo("Input/day01.txt");
             var result = solver.SolvePartTwo(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
     }
 }
