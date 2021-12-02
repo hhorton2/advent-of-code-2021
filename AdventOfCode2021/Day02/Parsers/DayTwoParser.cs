@@ -1,20 +1,21 @@
+using System.Collections.Generic;
+using AdventOfCode2021.Day02.Models;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day02.Parsers
 {
-    public class DayTwoParser : IInputParser<string, string>
+    public class DayTwoParser : IInputParser<IList<SubmarineInstruction>, IList<SubmarineInstruction>>
     {
-        private readonly IPartOneInputParser<string> _partOneInputParser = new PartOneParser();
-        private readonly IPartTwoInputParser<string> _partTwoInputParser = new PartTwoParser();
+        private readonly IPartOneInputParser<IList<SubmarineInstruction>> _partOneInputParser = new PartOneParser();
 
-        public string ParsePartOne(string fileName)
+        public IList<SubmarineInstruction> ParsePartOne(string fileName)
         {
             return _partOneInputParser.ParsePartOne(fileName);
         }
 
-        public string ParsePartTwo(string fileName)
+        public IList<SubmarineInstruction> ParsePartTwo(string fileName)
         {
-            return _partTwoInputParser.ParsePartTwo(fileName);
+            return _partOneInputParser.ParsePartOne(fileName);
         }
     }
 }
