@@ -1,15 +1,15 @@
-using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day03.Parsers
 {
-    public class PartTwoParser : IPartTwoInputParser<string>
+    public class PartTwoParser : IPartTwoInputParser<IList<string>>
     {
-        public string ParsePartTwo(string fileName)
+        public IList<string> ParsePartTwo(string fileName)
         {
-            var fileContents = File.ReadAllLines(fileName);
-            throw new NotImplementedException();
+            return File.ReadAllLines(fileName).ToList();
         }
     }
 }

@@ -1,18 +1,19 @@
+using System.Collections.Generic;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day03.Solvers
 {
-    public class DayThreeSolver : IPuzzleSolver<string, string, string, string>
+    public class DayThreeSolver : IPuzzleSolver<IList<IList<int>>, int, IList<string>, int>
     {
-        private readonly IPartOneSolver<string, string> _partOneSolver = new PartOneSolver();
-        private readonly IPartTwoSolver<string, string> _partTwoSolver = new PartTwoSolver();
+        private readonly IPartOneSolver<IList<IList<int>>, int> _partOneSolver = new PartOneSolver();
+        private readonly IPartTwoSolver<IList<string>, int> _partTwoSolver = new PartTwoSolver();
 
-        public string SolvePartOne(string input)
+        public int SolvePartOne(IList<IList<int>> input)
         {
             return _partOneSolver.SolvePartOne(input);
         }
 
-        public string SolvePartTwo(string input)
+        public int SolvePartTwo(IList<string> input)
         {
             return _partTwoSolver.SolvePartTwo(input);
         }
