@@ -16,11 +16,11 @@ namespace AdventOfCode2021Tests.Day04
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartOne(string expectedResult)
+        [InlineData(4512)]
+        public void SolveExamplesPartOne(int expectedResult)
         {
             var parser = new DayFourParser();
-            var input = parser.ParsePartOne("Input/day01Example.txt");
+            var input = parser.ParsePartOne("Input/day04Example.txt");
             var solver = new DayFourSolver();
             var actualResult = solver.SolvePartOne(input);
 
@@ -32,19 +32,18 @@ namespace AdventOfCode2021Tests.Day04
         {
             var parser = new DayFourParser();
             var solver = new DayFourSolver();
-            var input = parser.ParsePartOne("Input/day01.txt");
+            var input = parser.ParsePartOne("Input/day04.txt");
             var result = solver.SolvePartOne(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartTwo(string expectedResult)
+        [InlineData(1924)]
+        public void SolveExamplesPartTwo(int expectedResult)
         {
             var parser = new DayFourParser();
-            var input = parser.ParsePartTwo("Input/day01Example.txt");
+            var input = parser.ParsePartTwo("Input/day04Example.txt");
             var solver = new DayFourSolver();
             var actualResult = solver.SolvePartTwo(input);
 
@@ -56,11 +55,10 @@ namespace AdventOfCode2021Tests.Day04
         {
             var parser = new DayFourParser();
             var solver = new DayFourSolver();
-            var input = parser.ParsePartTwo("Input/day01.txt");
+            var input = parser.ParsePartTwo("Input/day04.txt");
             var result = solver.SolvePartTwo(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
     }
 }

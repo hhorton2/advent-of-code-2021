@@ -19,6 +19,12 @@
         <Content Include="Input\day03Example.txt">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include="Input\day04.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Input\day04Example.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
         <None Remove="Input\day01.txt"/>
         <Content Include="Input\day01.txt">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -27,6 +33,10 @@
         <Content Include="Input\day01Example.txt">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="morelinq" Version="3.3.2"/>
     </ItemGroup>
 
 </Project>

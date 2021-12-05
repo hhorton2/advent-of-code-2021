@@ -1,20 +1,21 @@
+using System.Collections.Generic;
+using AdventOfCode2021.Day04.Models;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day04.Parsers
 {
-    public class DayFourParser : IInputParser<string, string>
+    public class DayFourParser : IInputParser<(IList<int>, IList<BingoBoard>), (IList<int>, IList<BingoBoard>)>
     {
-        private readonly IPartOneInputParser<string> _partOneInputParser = new PartOneParser();
-        private readonly IPartTwoInputParser<string> _partTwoInputParser = new PartTwoParser();
+        private readonly IPartOneInputParser<(IList<int>, IList<BingoBoard>)> _partOneInputParser = new PartOneParser();
 
-        public string ParsePartOne(string fileName)
+        public (IList<int>, IList<BingoBoard>) ParsePartOne(string fileName)
         {
             return _partOneInputParser.ParsePartOne(fileName);
         }
 
-        public string ParsePartTwo(string fileName)
+        public (IList<int>, IList<BingoBoard>) ParsePartTwo(string fileName)
         {
-            return _partTwoInputParser.ParsePartTwo(fileName);
+            return _partOneInputParser.ParsePartOne(fileName);
         }
     }
 }
