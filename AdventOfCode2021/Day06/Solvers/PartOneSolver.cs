@@ -1,13 +1,18 @@
-using System;
+using AdventOfCode2021.Day06.Models;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day06.Solvers
 {
-    public class PartOneSolver : IPartOneSolver<string, string>
+    public class PartOneSolver : IPartOneSolver<IFishEcosystem, long>
     {
-        public string SolvePartOne(string input)
+        public long SolvePartOne(IFishEcosystem input)
         {
-            throw new NotImplementedException();
+            for (var i = 0; i < 80; i++)
+            {
+                input.DayPasses();
+            }
+
+            return input.PopulationSize();
         }
     }
 }

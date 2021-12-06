@@ -16,14 +16,16 @@ namespace AdventOfCode2021Tests.Day06
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartOne(string expectedResult)
+        [InlineData(5934)]
+        public void SolveExamplesPartOne(int expectedResult)
         {
+            using var console = new ConsoleOutput();
             var parser = new DaySixParser();
-            var input = parser.ParsePartOne("Input/day01Example.txt");
+            var input = parser.ParsePartOne("Input/day06Example.txt");
             var solver = new DaySixSolver();
             var actualResult = solver.SolvePartOne(input);
 
+            _outputHelper.WriteLine(console.GetOutput());
             actualResult.Should().Be(expectedResult);
         }
 
@@ -32,19 +34,18 @@ namespace AdventOfCode2021Tests.Day06
         {
             var parser = new DaySixParser();
             var solver = new DaySixSolver();
-            var input = parser.ParsePartOne("Input/day01.txt");
+            var input = parser.ParsePartOne("Input/day06.txt");
             var result = solver.SolvePartOne(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartTwo(string expectedResult)
+        [InlineData(26984457539)]
+        public void SolveExamplesPartTwo(long expectedResult)
         {
             var parser = new DaySixParser();
-            var input = parser.ParsePartTwo("Input/day01Example.txt");
+            var input = parser.ParsePartTwo("Input/day06Example.txt");
             var solver = new DaySixSolver();
             var actualResult = solver.SolvePartTwo(input);
 
@@ -56,11 +57,10 @@ namespace AdventOfCode2021Tests.Day06
         {
             var parser = new DaySixParser();
             var solver = new DaySixSolver();
-            var input = parser.ParsePartTwo("Input/day01.txt");
+            var input = parser.ParsePartTwo("Input/day06.txt");
             var result = solver.SolvePartTwo(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
     }
 }

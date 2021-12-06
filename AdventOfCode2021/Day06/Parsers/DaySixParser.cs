@@ -1,18 +1,19 @@
+using AdventOfCode2021.Day06.Models;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day06.Parsers
 {
-    public class DaySixParser : IInputParser<string, string>
+    public class DaySixParser : IInputParser<IFishEcosystem, IFishEcosystem>
     {
-        private readonly IPartOneInputParser<string> _partOneInputParser = new PartOneParser();
-        private readonly IPartTwoInputParser<string> _partTwoInputParser = new PartTwoParser();
+        private readonly IPartOneInputParser<IFishEcosystem> _partOneInputParser = new PartOneParser();
+        private readonly IPartTwoInputParser<IFishEcosystem> _partTwoInputParser = new PartTwoParser();
 
-        public string ParsePartOne(string fileName)
+        public IFishEcosystem ParsePartOne(string fileName)
         {
             return _partOneInputParser.ParsePartOne(fileName);
         }
 
-        public string ParsePartTwo(string fileName)
+        public IFishEcosystem ParsePartTwo(string fileName)
         {
             return _partTwoInputParser.ParsePartTwo(fileName);
         }
