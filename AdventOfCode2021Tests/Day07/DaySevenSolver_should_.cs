@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AdventOfCode2021.Day07.Parsers;
 using AdventOfCode2021.Day07.Solvers;
 using FluentAssertions;
@@ -34,8 +35,11 @@ namespace AdventOfCode2021Tests.Day07
         {
             var parser = new DaySevenParser();
             var solver = new DaySevenSolver();
+            var sw = Stopwatch.StartNew();
             var input = parser.ParsePartOne("Input/day07.txt");
             var result = solver.SolvePartOne(input);
+            sw.Stop();
+            _outputHelper.WriteLine($"Day07 PartOne: {result} in {sw.ElapsedMilliseconds}ms");
 
             _outputHelper.WriteLine(result.ToString());
         }
@@ -57,8 +61,17 @@ namespace AdventOfCode2021Tests.Day07
         {
             var parser = new DaySevenParser();
             var solver = new DaySevenSolver();
+            for (var i = 0; i < 10; i++)
+            {
+                var input2 = parser.ParsePartTwo("Input/day07.txt");
+                solver.SolvePartTwo(input2);
+            }
+
+            var sw = Stopwatch.StartNew();
             var input = parser.ParsePartTwo("Input/day07.txt");
             var result = solver.SolvePartTwo(input);
+            sw.Stop();
+            _outputHelper.WriteLine($"Day07 PartTwo: {result} in {sw.ElapsedMilliseconds}ms");
 
             _outputHelper.WriteLine(result.ToString());
         }
