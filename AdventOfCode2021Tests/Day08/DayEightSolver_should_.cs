@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AdventOfCode2021.Day08.Parsers;
 using AdventOfCode2021.Day08.Solvers;
 using FluentAssertions;
@@ -16,11 +17,11 @@ namespace AdventOfCode2021Tests.Day08
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartOne(string expectedResult)
+        [InlineData(26)]
+        public void SolveExamplesPartOne(int expectedResult)
         {
             var parser = new DayEightParser();
-            var input = parser.ParsePartOne("Input/day01Example.txt");
+            var input = parser.ParsePartOne("Input/day08Example.txt");
             var solver = new DayEightSolver();
             var actualResult = solver.SolvePartOne(input);
 
@@ -32,21 +33,23 @@ namespace AdventOfCode2021Tests.Day08
         {
             var parser = new DayEightParser();
             var solver = new DayEightSolver();
-            var input = parser.ParsePartOne("Input/day01.txt");
+            var input = parser.ParsePartOne("Input/day08.txt");
             var result = solver.SolvePartOne(input);
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
 
         [Theory]
-        [InlineData("example result")]
-        public void SolveExamplesPartTwo(string expectedResult)
+        [InlineData(61229)]
+        public void SolveExamplesPartTwo(int expectedResult)
         {
+            using var console = new ConsoleOutput();
             var parser = new DayEightParser();
-            var input = parser.ParsePartTwo("Input/day01Example.txt");
+            var input = parser.ParsePartTwo("Input/day08Example.txt");
             var solver = new DayEightSolver();
             var actualResult = solver.SolvePartTwo(input);
+            var output = console.GetOutput();
+            _outputHelper.WriteLine(output);
 
             actualResult.Should().Be(expectedResult);
         }
@@ -56,11 +59,13 @@ namespace AdventOfCode2021Tests.Day08
         {
             var parser = new DayEightParser();
             var solver = new DayEightSolver();
-            var input = parser.ParsePartTwo("Input/day01.txt");
+            var sw = Stopwatch.StartNew();
+            var input = parser.ParsePartTwo("Input/day08.txt");
             var result = solver.SolvePartTwo(input);
+            sw.Stop();
+            _outputHelper.WriteLine($"{result} in {sw.ElapsedMilliseconds}ms");
 
-            _outputHelper.WriteLine(result);
-            result.Should().NotBeNull();
+            _outputHelper.WriteLine(result.ToString());
         }
     }
 }

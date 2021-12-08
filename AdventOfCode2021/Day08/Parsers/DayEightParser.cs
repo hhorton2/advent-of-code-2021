@@ -1,20 +1,21 @@
+using System.Collections.Generic;
+using AdventOfCode2021.Day08.Models;
 using AdventOfCode2021.Interfaces;
 
 namespace AdventOfCode2021.Day08.Parsers
 {
-    public class DayEightParser : IInputParser<string, string>
+    public class DayEightParser : IInputParser<IList<SevenSegmentData>, IList<SevenSegmentData>>
     {
-        private readonly IPartOneInputParser<string> _partOneInputParser = new PartOneParser();
-        private readonly IPartTwoInputParser<string> _partTwoInputParser = new PartTwoParser();
+        private readonly IPartOneInputParser<IList<SevenSegmentData>> _partOneInputParser = new PartOneParser();
 
-        public string ParsePartOne(string fileName)
+        public IList<SevenSegmentData> ParsePartOne(string fileName)
         {
             return _partOneInputParser.ParsePartOne(fileName);
         }
 
-        public string ParsePartTwo(string fileName)
+        public IList<SevenSegmentData> ParsePartTwo(string fileName)
         {
-            return _partTwoInputParser.ParsePartTwo(fileName);
+            return _partOneInputParser.ParsePartOne(fileName);
         }
     }
 }
